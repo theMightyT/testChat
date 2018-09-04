@@ -3,22 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Socket IO Chat with Node!</title>
-	<link rel="stylesheet" href="/styles/chat.css">
+	<link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
-
-	<p class="fromMustache">this text should be appended with: 
-		<span>{{{ testmessage }}}
-	</p>
-	
 	<input type="text" class="nickname" placeholder="What is your nickname?">
 	<ul id="messages"></ul>
-	<form action="">
+	<form>
 		<input class="message" type="text" id="m" autocomplete="off">
 		<button>send</button>
 	</form>
-
 	<script src="/socket.io/socket.io.js"></script>
-	<script src="/script/main.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
