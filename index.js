@@ -4,6 +4,8 @@ var app 		= express();
 var http 		= require('http').Server(app);
 var io 			= require('socket.io')(http);
 
+var port = process.env.PORT || 3000;
+
 // some config stuff
 // tell our app to serve css files from that folder
 app.use(express.static('public'));
@@ -35,6 +37,6 @@ io.on('connection', function(socket) {
 });
 
 // tell the app to be served up at this port (same as WAMP or MAMP, just a different port)
-http.listen(3000, function() {
-	console.log('listening on localhost:3000');
+http.listen(port, function() {
+	console.log(`listening on ${port}`);
 });
