@@ -1,5 +1,5 @@
 (function() {
-	const socket = io(); // a constant is a variable that should never change (remains constant)
+	//const socket = io(); // a constant is a variable that should never change (remains constant)
 	//const nName = "julio";
 
 	let messageList = document.querySelector('ul'),
@@ -49,8 +49,8 @@
 
 	nameInput.addEventListener('change', setNickname, false);
 	chatForm.addEventListener('submit', handleSendMessage, false);
-	socket.addEventListener('chat message', appendMessage, false);
-	socket.addEventListener('disconnect message', appendDMessage, false);
+	//socket.addEventListener('chat message', appendMessage, false);
+	//socket.addEventListener('disconnect message', appendDMessage, false);
 
 	testFetch();
 })();
