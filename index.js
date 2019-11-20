@@ -4,6 +4,8 @@ var app 		= express();
 var http 		= require('http').Server(app);
 var io 			= require('socket.io')(http);
 
+const sql = require('../utils/sql');
+
 var port = process.env.PORT || 3000;
 
 // some config stuff
@@ -14,6 +16,18 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/api', (req, res) => {
+	// get some data and return it
+	let query = "SELECT * FROM stuff";
+
+	sql.query(query, (err, result) => {
+		if (err) { console.log(err); }
+
+		console.log(result);
+		res.json(result[0]);
+	})
+})
 
 // plug in socket.io
 io.on('connection', function(socket) {

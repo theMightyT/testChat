@@ -34,8 +34,23 @@
 		messageList.innerHTML += newMsg;
 	}
 
+	// try a test query and see if we get anything back
+
+	function testFetch() {
+		console.log('trying fetch');
+		
+		let url = "/api";
+
+		fetch(url)
+			.then(res => res.json())
+			.then(data => console.log(data))
+		.catch((error) => console.log(error));
+	}
+
 	nameInput.addEventListener('change', setNickname, false);
 	chatForm.addEventListener('submit', handleSendMessage, false);
 	socket.addEventListener('chat message', appendMessage, false);
 	socket.addEventListener('disconnect message', appendDMessage, false);
+
+	testFetch();
 })();
